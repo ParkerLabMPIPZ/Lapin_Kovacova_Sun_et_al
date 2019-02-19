@@ -1,8 +1,6 @@
 # Lapin, Kovacova et al
 
-## Content
-
-# Subdirectories
+## Subdirectories
 1. EP_domain_HMM
 
 pipeline and scripts to derive EP domain HMM
