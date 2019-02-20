@@ -1,4 +1,4 @@
-# Lapin, Kovacova et al
+# Lapin, Kovacova, Sun et al
 
 ## Subdirectories
 1. EP_domain_HMM
