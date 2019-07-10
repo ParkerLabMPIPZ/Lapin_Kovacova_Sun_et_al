@@ -1,4 +1,4 @@
-# Lapin, Kovacova, Sun et al
+# Lapin, Kovacova, Sun et al, The Plant Cell 2019
 
 ## Subdirectories
 1. EP_domain_HMM
