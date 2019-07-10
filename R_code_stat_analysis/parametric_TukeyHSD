@@ -1,0 +1,20 @@
+# test for normality
+fit1 <- lm(measured_parameter ~ Sample_name + Experiment, data = input_data) # fits linear regression, try log transformation if with raw data normality is not met
+hist(residuals(fit1)) # visual assessment of normality of residuals distribution
+qqnorm(residuals(fit1)) # visual assessment of normality of residuals distribution
+s.p.value <- shapiro.test(residuals(fit1))$p.value # formal test for normality of residuals
+print(base::paste("p-value for normality of res distribution - ", round(s.p.value, 3)))
+  
+# test for homogeneity of variance
+f.p.value<-fligner.test(measured_parameter ~ as.factor(Sample_name), dat a= input_data)$p.value #for Fligner-Killeen test
+print(base::paste("p-value for homogeneity of variance at 3 dpi for", strain, f.p.value))
+
+
+# ANOVA and Tukey's HSD
+attach(input_data)
+aov.result <- aov(measured_parameter ~ Sample_name + Experiment, contrast=NULL) # use log tranformed data if this was necessary to meet the normality criterium
+summary(aov.result)
+tukey <- TukeyHSD(aov.result)
+detach(input_data)
+  
+
