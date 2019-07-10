@@ -1,0 +1,7 @@
+# Non-parametric test if the normality/homogeneity of variance are not met
+# to avoid problem with ties add tiny random value to each measure
+to_add <- rnorm(nrow(input_data), mean = 0.5, sd = 0.05)
+input_data$CONDUCTIVITY_MOD <- input_data$CONDUCTIVITY + to_add
+
+# Nemenyi test from the package PMCMRplus
+s1 <- kwAllPairsNemenyiTest(CONDUCTIVITY_MOD ~ SAMPLE, data = input_data, p.adjust.method = "bonferroni")
